@@ -14,6 +14,14 @@
 
 # Tech Stack (WIP)
 
+### Frontend
+
+- React Native
+- React Flow
+- Tailwind?
+
+### Backend
+
 Firebase Authentication:
 
 - identifies user
