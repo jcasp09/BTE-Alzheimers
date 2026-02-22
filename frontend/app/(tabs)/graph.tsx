@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
-export default function HomeScreen() {
+export default function GraphScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">Example Home Page</ThemedText>
+      <ThemedText>here, we will show the graph of the user&apos;s data</ThemedText>
     </ThemedView>
   );
 }

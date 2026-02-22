@@ -15,7 +15,8 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* Files in the (tabs) folder are the tabs for the app. */}
+        <Stack.Screen name="(tabs)" options={{ headerShown: true, headerTitle: 'BTE-Alzheimers' }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
