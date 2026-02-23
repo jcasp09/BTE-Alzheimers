@@ -20,9 +20,7 @@
 - React Flow
 - Tailwind?
 
-### Backend
-
-##### Various Firebase products
+### Backend: Firebase (BaaS)
 
 Authentication:
 
