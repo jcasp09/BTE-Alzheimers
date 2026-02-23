@@ -12,7 +12,7 @@
 
 - The 'theme'/'color-scheme' files in the `components`, `constants`, and `hooks` directories are boilerplate, and modifiable templates for light and dark modes. It seems confusing but the only thing to rly worry about is how to use the provided theme components when displaying things. In the future we can mess around with our own color/styling templates.
 
-# Tech Stack (WIP)
+# Tech Stack
 
 ### Frontend
 
@@ -22,21 +22,23 @@
 
 ### Backend
 
-Firebase Authentication:
+##### Various Firebase products
 
-- identifies user
-- stores email, hashed pwd, login tokens
+Authentication:
 
-Firestore DB:
+- handles user auth
+- stores all user info
 
-- noSQL db for graph data
-- still need to decide between Cloud Firestore and Firebase Realtime Database
+Firestore:
 
-Firestore Cloud Storage:
+- noSQL db
+- stores user's graph data and preferences
 
-- store image urls, etc.
+Cloud Storage:
 
-# Storage (WIP)
+- stores image data (firestore just just has urls)
+
+# Data Structure (WIP)
 
 - users/{userId}/
   - profile
