@@ -5,6 +5,9 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
+// Initialize Firebase when the app starts (TypeScript/React Native entry point)
+import '@/lib/firebase';
+
 export const unstable_settings = {
   anchor: '(tabs)',
 };
