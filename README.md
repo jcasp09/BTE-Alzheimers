@@ -1,6 +1,6 @@
-# Project notes/overview for development
+# dev notes / specifications (WIP)
 
-0. Dev notes
+0. Setup/Notes
 1. Motivation & Core Vision
 2. Core Functionality
 3. Demographic
@@ -11,19 +11,42 @@
 
 ---
 
-### 0. Dev notes
+### Setup
 
-#### Setup
+Run
 
-- Download and sign-in to 'Expo Go' IOS app
-- Run `npm start`
-- Scan QR-code in terminal to be taken to app preview
+```
+cd frontend
+npm start
+```
 
-#### Misc. repo notes
+#### Platform preview options are available in terminal (iOS, Android, Web)
+
+e.g. Mobile:
+
+- Have 'Expo Go' app installed and signed in to
+- QR-code in terminal takes you to app preview
+
+### Notes
+
+Expo/React:
 
 - `app/_layout.tsx` is the root, and defines a 'stack screen' that references the `app/(tabs)` directory. In `app/(tabs)/_layout.tsx` we create 'Tabs.Screen's whose name attribute auto-route to corresponding files in the `(tabs)` directory.
 
 - The 'theme'/'color-scheme' files in the `components`, `constants`, and `hooks` directories are boilerplate, and modifiable templates for light and dark modes. It seems confusing but the only thing to rly worry about is how to use the provided theme components when displaying things. In the future we can mess around with our own color/styling templates.
+
+Mobile dev/Firebase:
+
+- You regenerate native application folders like `ios/` with `npx expo prebuild` (e.g. changing the bundle ID or adding a native module). `ios/` for example includes Xcode workspace files that you open with Xcode (Apple's iOS IDE).
+- Our TypeScript/React Native code can't run by itself on an iPhone, it needs a native iOS app that loads and runs it. `ios/` is an Xcode project that builds the `.app` that iOS devices can actually run; It includes the React Native runtime, the JavaScript engine, a small native shell, etc.
+- So, you write in TypeScript (and other non-Swift languages) outside Apple’s ecosystem, but on device your app is still “an iOS app written in Swift (and C++) that hosts a JS runtime and your bundle.”  The `ios/` folder is that host. Same idea on Android with the android/ folder and Kotlin/Java.
+
+- Firebase is connected to the different platforms independently. When connecting an iOS app to firebase, you input your app's _bundle ID_ which identifies individual apps within Apple's ecosystem. This is easily identifiable in something like Xcode as it's an iOS IDE. In other IDEs like VSCode, its available in app.json.
+- Firebase provides you with a GoogleService-Info.plist file to download and place in the `ios/frontend` directory. You then need to add it to the Xcode workspaces _project_, and _targets_
+- You can use different apps/platforms in Firebase. Each has its own config:
+  - iOS: `GoogleService-Info.plist` (per app / bundle ID)
+  - Android: `google-services.json` (per app / package name)
+  - Web: the more familiar `firebaseConfig` object  (per app)
 
 ---
 
