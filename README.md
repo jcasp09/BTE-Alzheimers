@@ -211,6 +211,19 @@ Two design options:
   - Memory photos
 - Firestore only stores image URLs
 
+#### Note:
+
+Import the shared app instance where you need it:
+
+`import { app } from '@/lib/firebase';`
+
+Then use Firebase services, e.g.:
+
+```
+import { getFirestore } from 'firebase/firestore';
+const db = getFirestore(app);
+```
+
 ---
 
 ### 6. High-Level Data Model (WIP)
